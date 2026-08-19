@@ -1,5 +1,5 @@
-      <!DOCTYPE html>
-<html lang="ur">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      align-items: stretch;
     }
 
     .service {
@@ -60,7 +59,6 @@
       text-align: center;
       box-shadow: 0 3px 12px rgba(0,0,0,.08);
       cursor: pointer;
-      min-width: 0;
       min-height: 125px;
       display: flex;
       flex-direction: column;
@@ -71,13 +69,11 @@
     .service .icon {
       font-size: 38px;
       margin-bottom: 10px;
-      line-height: 1;
     }
 
     .service h3 {
       font-size: 16px;
-      line-height: 1.25;
-      overflow-wrap: break-word;
+      line-height: 1.4;
     }
 
     .order-form {
@@ -97,7 +93,7 @@
     .form-note {
       color: #666;
       margin-bottom: 18px;
-      line-height: 1.5;
+      line-height: 1.7;
     }
 
     .form-group {
@@ -108,6 +104,7 @@
       display: block;
       margin-bottom: 7px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
     .form-group input,
@@ -181,114 +178,148 @@
 
 <div class="container">
 
-  <h2>Our Services</h2>
+  <h2>Our Services / ہماری سروسز</h2>
 
   <div class="services">
 
     <div class="service" onclick="selectService('Grocery')">
       <div class="icon">🛒</div>
-      <h3>Grocery</h3>
+      <h3>Grocery<br>گروسری</h3>
     </div>
 
     <div class="service" onclick="selectService('Food')">
       <div class="icon">🍔</div>
-      <h3>Food</h3>
+      <h3>Food<br>کھانا</h3>
     </div>
 
     <div class="service" onclick="selectService('Pharmacy')">
       <div class="icon">💊</div>
-      <h3>Pharmacy</h3>
+      <h3>Pharmacy<br>فارمیسی</h3>
     </div>
 
     <div class="service" onclick="selectService('Delivery')">
       <div class="icon">🛵</div>
-      <h3>Delivery</h3>
+      <h3>Delivery<br>ڈیلیوری</h3>
     </div>
 
     <div class="service" onclick="selectService('Parcel / Pickup & Drop')">
       <div class="icon">📦</div>
-      <h3>Parcel / Pickup & Drop</h3>
+      <h3>Parcel / Pickup & Drop<br>پارسل / پک اَپ اینڈ ڈراپ</h3>
     </div>
 
     <div class="service" onclick="selectService('Bakery')">
       <div class="icon">🥐</div>
-      <h3>Bakery</h3>
+      <h3>Bakery<br>بیکری</h3>
     </div>
 
     <div class="service" onclick="selectService('Restaurant')">
       <div class="icon">🍽️</div>
-      <h3>Restaurant</h3>
+      <h3>Restaurant<br>ریسٹورنٹ</h3>
     </div>
 
     <div class="service" onclick="selectService('Shopping')">
       <div class="icon">🛍️</div>
-      <h3>Shopping</h3>
+      <h3>Shopping<br>شاپنگ</h3>
     </div>
 
     <div class="service" onclick="selectService('Reacher Ride')">
       <div class="icon">🛺</div>
-      <h3>Reacher Ride</h3>
+      <h3>Reacher Ride<br>ریچر رائیڈ</h3>
     </div>
 
     <div class="service" onclick="selectService('Recharge & Packages')">
       <div class="icon">📱</div>
-      <h3>Recharge & Packages</h3>
+      <h3>Recharge & Packages<br>ریچارج اور پیکجز</h3>
     </div>
 
     <div class="service" onclick="selectService('Bill Payment')">
       <div class="icon">🧾</div>
-      <h3>Bill Payment</h3>
+      <h3>Bill Payment<br>بل پیمنٹ</h3>
     </div>
 
   </div>
 
   <div id="groceryForm" class="order-form">
 
-    <h2>🛒 Grocery Order</h2>
+    <h2>🛒 Grocery Order / گروسری آرڈر</h2>
 
     <p class="form-note">
-      آپ کو جو بھی grocery چاہیے، اس کا نام اور quantity نیچے لکھیں۔
-      ہم سامان arrange کرکے آپ تک deliver کریں گے۔
+      Order any grocery items you need. / اپنی ضرورت کی کوئی بھی گروسری آرڈر کریں۔
+      <br>
+      We will arrange the items and deliver them to you.
+      / ہم سامان کا انتظام کرکے آپ تک ڈیلیور کریں گے۔
     </p>
 
     <div class="form-group">
-      <label>Your Name</label>
-      <input id="customerName" type="text" placeholder="اپنا نام لکھیں">
+      <label>
+        Your Name / آپ کا نام
+      </label>
+
+      <input
+        id="customerName"
+        type="text"
+        placeholder="Enter your name / اپنا نام لکھیں"
+      >
     </div>
 
     <div class="form-group">
-      <label>Phone Number</label>
-      <input id="customerPhone" type="tel" placeholder="03XX XXXXXXX">
+      <label>
+        Phone Number / فون نمبر
+      </label>
+
+      <input
+        id="customerPhone"
+        type="tel"
+        placeholder="03XX XXXXXXX"
+      >
     </div>
 
     <div class="form-group">
-      <label>Delivery Address</label>
-      <input id="customerAddress" type="text" placeholder="اپنا مکمل address لکھیں">
+      <label>
+        Delivery Address / ڈیلیوری ایڈریس
+      </label>
+
+      <input
+        id="customerAddress"
+        type="text"
+        placeholder="Enter complete address / مکمل ایڈریس لکھیں"
+      >
     </div>
 
     <div class="form-group">
-      <label>What do you need?</label>
-      <textarea id="groceryItems" placeholder="مثال:
+      <label>
+        What do you need? / آپ کو کیا چاہیے؟
+      </label>
 
-آلو — 2 کلو
-کریلا — 1 کلو
-چاول — 5 کلو
-بریانی مصالحہ — 2 پیکٹ
-کافی — 1 پیکٹ"></textarea>
+      <textarea
+        id="groceryItems"
+        placeholder="Example / مثال:
+
+Potatoes — 2 KG / آلو — 2 کلو
+Bitter Gourd — 1 KG / کریلا — 1 کلو
+Rice — 5 KG / چاول — 5 کلو
+Biryani Masala — 2 Packs / بریانی مصالحہ — 2 پیکٹ
+Coffee — 1 Pack / کافی — 1 پیکٹ
+
+Write anything you need.
+اپنی ضرورت کی کوئی بھی چیز لکھیں۔"
+      ></textarea>
     </div>
 
     <button class="send-order" onclick="sendGroceryOrder()">
       📦 Send Grocery Order on WhatsApp
+      <br>
+      واٹس ایپ پر گروسری آرڈر بھیجیں
     </button>
 
     <button class="close-form" onclick="closeGroceryForm()">
-      Close
+      Close / بند کریں
     </button>
 
   </div>
 
   <button class="whatsapp" onclick="openWhatsApp()">
-    💬 Chat with Reacher Digital
+    💬 Chat with Reacher Digital / ریچر ڈیجیٹل سے رابطہ کریں
   </button>
 
 </div>
@@ -315,7 +346,8 @@
 
     alert(
       service +
-      " service will be available soon."
+      " service will be available soon.\n" +
+      "یہ سروس جلد دستیاب ہوگی۔"
     );
   }
 
@@ -342,7 +374,8 @@
     if (!name || !customerPhone || !address || !items) {
 
       alert(
-        "Please fill in all fields before sending your order."
+        "Please fill in all fields before sending your order.\n" +
+        "آرڈر بھیجنے سے پہلے تمام معلومات مکمل کریں۔"
       );
 
       return;
@@ -351,18 +384,23 @@
     const message =
 `🛒 *New Grocery Order - Reacher Digital*
 
-👤 Name: ${name}
+👤 Name / نام:
+${name}
 
-📱 Phone: ${customerPhone}
+📱 Phone / فون:
+${customerPhone}
 
-📍 Address: ${address}
+📍 Address / ایڈریس:
+${address}
 
-🛍️ Grocery Items:
+🛍️ Grocery Items / گروسری:
 ${items}
 
 Please confirm availability and total price.
+براہِ کرم سامان کی دستیابی اور کل قیمت بتا دیں۔
 
-Thank you.`;
+Thank you.
+شکریہ۔`;
 
     window.open(
       "https://wa.me/" +
@@ -377,7 +415,8 @@ Thank you.`;
   function openWhatsApp() {
 
     const message =
-      "Assalam-o-Alaikum, I want to ask about a service from Reacher Digital.";
+      "Assalam-o-Alaikum, I want to ask about a service from Reacher Digital.\n" +
+      "السلام علیکم، میں Reacher Digital کی سروس کے بارے میں معلومات لینا چاہتا ہوں۔";
 
     window.open(
       "https://wa.me/" +
