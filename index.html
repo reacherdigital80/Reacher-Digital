@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1565c0">
+  <title>Reacher Digital</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #1565c0;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 25px;
+    }
+
+    header p {
+      margin-top: 5px;
+      opacity: .9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: #1565c0;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .service {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+      cursor: pointer;
+    }
+
+    .service .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .service h3 {
+      font-size: 17px;
+    }
+
+    .products {
+      margin-top: 25px;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      border: none;
+      background: #1565c0;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      background: #25D366;
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    .cart {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #1565c0;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    }
+
+    .empty {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      color: #777;
+    }
+
+    @media (min-width: 600px) {
+      .services {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Reacher Digital</h1>
+  <p>Digital Delivery & Ordering</p>
+</header>
+
+<div class="container">
+
+  <input
+    id="search"
+    class="search"
+    type="text"
+    placeholder="Search what you need..."
+  >
+
+  <h2>Our Services</h2>
+
+  <div class="services">
+
+    <div class="service" onclick="selectService('Grocery')">
+      <div class="icon">🛒</div>
+      <h3>Grocery</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Food')">
+      <div class="icon">🍔</div>
+      <h3>Food</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Pharmacy')">
+      <div class="icon">💊</div>
+      <h3>Pharmacy</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Delivery')">
+      <div class="icon">🛵</div>
+      <h3>Delivery</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Parcel')">
+      <div class="icon">📦</div>
+      <h3>Parcel</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Bakery')">
+      <div class="icon">🥐</div>
+      <h3>Bakery</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Restaurant')">
+      <div class="icon">🍽️</div>
+      <h3>Restaurant</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Shopping')">
+      <div class="icon">🛍️</div>
+      <h3>Shopping</h3>
+    </div>
+
+  </div>
+
+  <div class="products">
+    <h2>Search Results</h2>
+
+    <div id="results" class="empty">
+      Search for what you need
+    </div>
+  </div>
+
+  <button class="whatsapp" onclick="openWhatsApp()">
+    💬 Ask Price on WhatsApp
+  </button>
+
+</div>
+
+<div class="cart" onclick="showCart()">
+  🛒 Cart: <span id="cartCount">0</span>
+</div>
+
+<script type="module">
+
+  import { initializeApp }
+  from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    getDocs
+  } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA_C85-gVDF4tCwKYV2iUZInEmtN7C-RUk",
+    authDomain: "reacher-digital.firebaseapp.com",
+    projectId: "reacher-digital",
+    storageBucket: "reacher-digital.firebasestorage.app",
+    messagingSenderId: "238280548254",
+    appId: "1:238280548254:web:a1f603f0822b7052fc408f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  let cart = [];
+
+  async function loadProducts() {
+
+    const results = document.getElementById("results");
+
+    try {
+
+      const snapshot = await getDocs(collection(db, "products"));
+
+      if (snapshot.empty) {
+        results.innerHTML =
+          '<div class="empty">Search for what you need</div>';
+        return;
+      }
+
+      window.products = [];
+
+      snapshot.forEach(doc => {
+        window.products.push({
+          id: doc.id,
+          ...doc.data()
+        });
+      });
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
+  }
+
+  document.getElementById("search").addEventListener("input", function() {
+
+    const query = this.value.toLowerCase().trim();
+    const results = document.getElementById("results");
+
+    if (!query) {
+      results.innerHTML =
+        '<div class="empty">Search for what you need</div>';
+      return;
+    }
+
+    const matches = (window.products || []).filter(product => {
+
+      const name = String(product.name || "").toLowerCase();
+
+      return name.includes(query);
+
+    });
+
+    if (matches.length === 0) {
+
+      results.innerHTML =
+        '<div class="empty">No matching product found</div>';
+
+      return;
+    }
+
+    results.innerHTML = matches.map(product => `
+      <div class="product">
+        <div>
+          <strong>${product.name || "Product"}</strong>
+        </div>
+
+        <button onclick="addToCart('${product.id}')">
+          Add
+        </button>
+      </div>
+    `).join("");
+
+  });
+
+  window.addToCart = function(id) {
+
+    const product = (window.products || [])
+      .find(p => p.id === id);
+
+    if (!product) return;
+
+    cart.push(product);
+
+    document.getElementById("cartCount").textContent =
+      cart.length;
+
+    alert("Product added to cart");
+
+  };
+
+  window.selectService = function(service) {
+
+    document.getElementById("search").focus();
+
+    alert(
+      service +
+      " selected. Search for what you need."
+    );
+
+  };
+
+  window.showCart = function() {
+
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+
+    const names = cart
+      .map(item => item.name)
+      .join("\n");
+
+    alert(
+      "Your Cart:\n\n" +
+      names +
+      "\n\nPrice will be confirmed by shop."
+    );
+
+  };
+
+  window.openWhatsApp = function() {
+
+    const message =
+      "Assalam-o-Alaikum, I want to ask about a product/service from Reacher Digital.";
+
+    const phone = "923000000000";
+
+    window.open(
+      "https://wa.me/" +
+      phone +
+      "?text=" +
+      encodeURIComponent(message),
+      "_blank"
+    );
+
+  };
+
+  loadProducts();
+
+</script>
+
+</body>
+</html>
