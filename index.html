@@ -3,43 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1565c0">
 <title>Reacher Digital</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f7fb;color:#222}
-header{background:#1565c0;color:white;padding:22px;text-align:center}
-header h1{font-size:26px}
-header p{margin-top:6px;opacity:.9}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
 
-.container{max-width:900px;margin:auto;padding:20px}
-h2{margin-bottom:15px}
+body{
+background:#f5f7fb;
+color:#222;
+}
+
+header{
+background:#1565c0;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.logo{
+width:65px;
+height:65px;
+margin:auto;
+border-radius:50%;
+background:white;
+color:#1565c0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+font-weight:bold;
+}
+
+header h1{
+margin-top:8px;
+font-size:25px;
+}
+
+header p{
+margin-top:5px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+h2{
+margin-bottom:15px;
+}
 
 .services{
 display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:14px;
 }
 
 .service{
 background:white;
 border-radius:15px;
+min-height:125px;
 padding:18px 10px;
 text-align:center;
 box-shadow:0 3px 12px rgba(0,0,0,.08);
 cursor:pointer;
-min-height:125px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 }
 
-.service .icon{font-size:38px;margin-bottom:10px}
-.service h3{font-size:16px;line-height:1.3}
+.icon{
+font-size:38px;
+margin-bottom:10px;
+}
 
-.order-form{
+.service h3{
+font-size:16px;
+line-height:1.4;
+}
+
+.form{
 display:none;
 background:white;
 margin-top:25px;
@@ -48,98 +97,80 @@ border-radius:15px;
 box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
-.order-form h2{color:#1565c0;margin-bottom:8px}
+.form h2{
+color:#1565c0;
+}
 
-.form-note{
+.note{
 color:#666;
+line-height:1.7;
 margin-bottom:18px;
+}
+
+label{
+display:block;
+font-weight:bold;
+margin-bottom:6px;
 line-height:1.6;
 }
 
-.form-group{margin-bottom:15px}
-
-.form-group label{
-display:block;
-margin-bottom:7px;
-font-weight:bold;
-line-height:1.5;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select{
+input,textarea,select{
 width:100%;
 padding:13px;
 border:1px solid #ddd;
 border-radius:10px;
 font-size:15px;
-outline:none;
+margin-bottom:14px;
 }
 
-.form-group textarea{
+textarea{
 min-height:120px;
 resize:vertical;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus{
-border-color:#1565c0;
-}
-
 .buttons{
-display:flex;
+display:grid;
+grid-template-columns:1fr 1fr;
 gap:10px;
-margin-top:10px;
 }
 
-.whatsapp-btn{
-flex:1;
+button{
+border:0;
+border-radius:10px;
+padding:14px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.whatsapp{
 background:#25D366;
 color:white;
-padding:14px 10px;
-border:none;
-border-radius:10px;
-font-size:15px;
-cursor:pointer;
 }
 
-.call-btn{
-flex:1;
+.call{
 background:#1565c0;
 color:white;
-padding:14px 10px;
-border:none;
-border-radius:10px;
-font-size:15px;
-cursor:pointer;
 }
 
-.close-form{
+.close{
 width:100%;
 margin-top:10px;
 background:#eee;
 color:#333;
-padding:12px;
-border:none;
-border-radius:10px;
-cursor:pointer;
 }
 
 .chat{
+width:100%;
+margin-top:25px;
 background:#25D366;
 color:white;
-width:100%;
-margin-top:20px;
-padding:15px;
-font-size:16px;
-border:none;
-border-radius:10px;
-cursor:pointer;
 }
 
 @media(min-width:600px){
-.services{grid-template-columns:repeat(4,minmax(0,1fr))}
+.services{
+grid-template-columns:repeat(4,1fr);
+}
 }
 </style>
 </head>
@@ -147,6 +178,7 @@ cursor:pointer;
 <body>
 
 <header>
+<div class="logo">RD</div>
 <h1>Reacher Digital</h1>
 <p>Digital Delivery & Ordering</p>
 </header>
@@ -159,501 +191,420 @@ cursor:pointer;
 
 <div class="service" onclick="openForm('grocery')">
 <div class="icon">🛒</div>
-<h3>Grocery<br>گروسری</h3>
+<h3>Grocery / گروسری</h3>
 </div>
 
 <div class="service" onclick="openForm('food')">
 <div class="icon">🍔</div>
-<h3>Food<br>کھانا</h3>
+<h3>Food / کھانا</h3>
 </div>
 
 <div class="service" onclick="openForm('pharmacy')">
 <div class="icon">💊</div>
-<h3>Pharmacy<br>فارمیسی</h3>
+<h3>Pharmacy / فارمیسی</h3>
 </div>
 
 <div class="service" onclick="openForm('delivery')">
 <div class="icon">🛵</div>
-<h3>Delivery<br>ڈیلیوری</h3>
+<h3>Delivery / ڈیلیوری</h3>
 </div>
 
 <div class="service" onclick="openForm('parcel')">
 <div class="icon">📦</div>
-<h3>Parcel / Pickup & Drop<br>پارسل / پک اَپ اینڈ ڈراپ</h3>
+<h3>Parcel / Pickup & Drop</h3>
 </div>
 
 <div class="service" onclick="openForm('bakery')">
 <div class="icon">🥐</div>
-<h3>Bakery<br>بیکری</h3>
+<h3>Bakery / بیکری</h3>
 </div>
 
 <div class="service" onclick="openForm('restaurant')">
 <div class="icon">🍽️</div>
-<h3>Restaurant<br>ریسٹورینٹ</h3>
+<h3>Restaurant / ریسٹورنٹ</h3>
 </div>
 
 <div class="service" onclick="openForm('shopping')">
 <div class="icon">🛍️</div>
-<h3>Shopping<br>شاپنگ</h3>
+<h3>Shopping / شاپنگ</h3>
 </div>
 
 <div class="service" onclick="openForm('ride')">
 <div class="icon">🛺</div>
-<h3>Reacher Ride<br>ریچر رائیڈ</h3>
+<h3>Reacher Ride / ریچر رائیڈ</h3>
 </div>
 
 <div class="service" onclick="openForm('recharge')">
 <div class="icon">📱</div>
-<h3>Recharge & Packages<br>ریچارج اور پیکیجز</h3>
+<h3>Recharge & Packages / ریچارج</h3>
 </div>
 
 <div class="service" onclick="openForm('bill')">
 <div class="icon">🧾</div>
-<h3>Bill Payment<br>بل ادائیگی</h3>
+<h3>Bill Payment / بل پیمنٹ</h3>
 </div>
 
 </div>
+
 
 <!-- GROCERY -->
 
-<div id="grocery" class="order-form">
+<div class="form" id="grocery">
 
 <h2>🛒 Grocery Order / گروسری آرڈر</h2>
 
-<p class="form-note">
-جو بھی Grocery چاہیے، نام اور مقدار لکھیں۔<br>
-Write the grocery items and required quantity.
+<p class="note">
+اپنی مطلوبہ گروسری اور مقدار لکھیں۔ ہم سامان arrange کرکے آپ تک پہنچائیں گے۔
 </p>
 
-<div class="form-group">
 <label>Name / نام</label>
-<input id="grocery_name" placeholder="اپنا نام لکھیں / Enter your name">
-</div>
+<input id="g_name" placeholder="اپنا نام لکھیں">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="grocery_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="g_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Address / پتہ</label>
-<input id="grocery_address" placeholder="مکمل پتہ لکھیں / Full address">
-</div>
+<input id="g_address" placeholder="مکمل پتہ لکھیں">
 
-<div class="form-group">
 <label>Grocery Items / گروسری سامان</label>
-<textarea id="grocery_items" placeholder="مثال / Example:
-آلو 2 کلو
-Apple 1 کلو
-چاول 5 کلو
-بریانی مصالحہ 2 پیکٹ"></textarea>
-</div>
+<textarea id="g_items" placeholder="مثال:
+Apple / سیب - 2 کلو
+Potato / آلو - 3 کلو
+Rice / چاول - 5 کلو"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Grocery','grocery')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('grocery')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- FOOD -->
 
-<div id="food" class="order-form">
+<div class="form" id="food">
 
 <h2>🍔 Food Order / کھانے کا آرڈر</h2>
 
-<p class="form-note">
-اپنی پسند کا کھانا اور مقدار لکھیں۔<br>
-Write your food order and quantity.
-</p>
+<p class="note">اپنے کھانے اور مقدار کی تفصیل لکھیں۔</p>
 
-<div class="form-group">
 <label>Name / نام</label>
-<input id="food_name" placeholder="اپنا نام / Your name">
-</div>
+<input id="f_name" placeholder="اپنا نام لکھیں">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="food_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="f_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Address / پتہ</label>
-<input id="food_address" placeholder="مکمل پتہ / Full address">
-</div>
+<input id="f_address" placeholder="مکمل پتہ">
 
-<div class="form-group">
-<label>Food Order / کھانے کا آرڈر</label>
-<textarea id="food_items" placeholder="مثال / Example:
-Biryani 2 plates
-Burger 1
-Cold Drink 1"></textarea>
-</div>
+<label>Food Details / کھانے کی تفصیل</label>
+<textarea id="f_items" placeholder="مثال:
+Biryani / بریانی - 2 پلیٹ
+Shawarma / شوارما - 1"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Food','food')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('food')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- PHARMACY -->
 
-<div id="pharmacy" class="order-form">
+<div class="form" id="pharmacy">
 
 <h2>💊 Pharmacy Order / فارمیسی آرڈر</h2>
 
-<p class="form-note">
-ضروری Medicine یا Pharmacy items لکھیں۔<br>
-Write the medicine or pharmacy items you need.
-</p>
+<p class="note">دوا یا فارمیسی آئٹمز کی تفصیل لکھیں۔</p>
 
-<div class="form-group">
 <label>Name / نام</label>
-<input id="pharmacy_name" placeholder="اپنا نام / Your name">
-</div>
+<input id="p_name" placeholder="اپنا نام لکھیں">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="pharmacy_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="p_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Address / پتہ</label>
-<input id="pharmacy_address" placeholder="مکمل پتہ / Full address">
-</div>
+<input id="p_address" placeholder="مکمل پتہ">
 
-<div class="form-group">
-<label>Medicine / Pharmacy Items / ادویات</label>
-<textarea id="pharmacy_items" placeholder="Medicine name / دوا کا نام
-Quantity / مقدار"></textarea>
-</div>
+<label>Medicine Details / دوا کی تفصیل</label>
+<textarea id="p_items" placeholder="Medicine name / دوا کا نام اور quantity / مقدار"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Pharmacy','pharmacy')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('pharmacy')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- DELIVERY -->
 
-<div id="delivery" class="order-form">
+<div class="form" id="delivery">
 
-<h2>🛵 Delivery Service / ڈیلیوری سروس</h2>
+<h2>🛵 Delivery / ڈیلیوری</h2>
 
-<div class="form-group">
+<p class="note">Pickup اور Delivery کی معلومات دیں۔</p>
+
 <label>Name / نام</label>
-<input id="delivery_name" placeholder="اپنا نام / Your name">
-</div>
+<input id="d_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="delivery_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="d_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
-<label>Pickup Address / سامان لینے کا پتہ</label>
-<input id="delivery_pickup" placeholder="Pickup address">
-</div>
+<label>Pickup Address / پک اپ پتہ</label>
+<input id="d_pickup" placeholder="جہاں سے سامان لینا ہے">
 
-<div class="form-group">
-<label>Drop Address / سامان پہنچانے کا پتہ</label>
-<input id="delivery_drop" placeholder="Drop address">
-</div>
+<label>Delivery Address / ڈیلیوری پتہ</label>
+<input id="d_address" placeholder="جہاں سامان پہنچانا ہے">
 
-<div class="form-group">
-<label>Details / تفصیل</label>
-<textarea id="delivery_items" placeholder="Delivery details / ڈیلیوری کی تفصیل"></textarea>
-</div>
+<label>Item Details / سامان کی تفصیل</label>
+<textarea id="d_items" placeholder="سامان کی تفصیل"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Delivery','delivery')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('delivery')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- PARCEL -->
 
-<div id="parcel" class="order-form">
+<div class="form" id="parcel">
 
 <h2>📦 Parcel / Pickup & Drop</h2>
 
-<p class="form-note">Parcel pickup and drop service / پارسل پک اَپ اور ڈراپ سروس</p>
+<p class="note">پارسل کے Pickup اور Drop کی معلومات دیں۔</p>
 
-<div class="form-group">
 <label>Name / نام</label>
-<input id="parcel_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="pa_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="parcel_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="pa_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
-<label>Pickup Location / پک اَپ جگہ</label>
-<input id="parcel_pickup" placeholder="Pickup location">
-</div>
+<label>Pickup Address / پک اپ پتہ</label>
+<input id="pa_pickup" placeholder="پک اپ کا پتہ">
 
-<div class="form-group">
-<label>Drop Location / ڈراپ جگہ</label>
-<input id="parcel_drop" placeholder="Drop location">
-</div>
+<label>Drop Address / ڈراپ پتہ</label>
+<input id="pa_drop" placeholder="ڈراپ کا پتہ">
 
-<div class="form-group">
 <label>Parcel Details / پارسل کی تفصیل</label>
-<textarea id="parcel_items" placeholder="Parcel details / پارسل کی تفصیل"></textarea>
-</div>
+<textarea id="pa_items" placeholder="پارسل میں کیا ہے؟"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Parcel / Pickup & Drop','parcel')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('parcel')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- BAKERY -->
 
-<div id="bakery" class="order-form">
+<div class="form" id="bakery">
 
 <h2>🥐 Bakery Order / بیکری آرڈر</h2>
 
-<div class="form-group">
+<p class="note">بیکری آئٹمز اور مقدار لکھیں۔</p>
+
 <label>Name / نام</label>
-<input id="bakery_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="b_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="bakery_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="b_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Address / پتہ</label>
-<input id="bakery_address" placeholder="Full address / مکمل پتہ">
-</div>
+<input id="b_address" placeholder="مکمل پتہ">
 
-<div class="form-group">
-<label>Bakery Items / بیکری سامان</label>
-<textarea id="bakery_items" placeholder="Cake, Bread, Biscuits etc."></textarea>
-</div>
+<label>Bakery Items / بیکری آئٹمز</label>
+<textarea id="b_items" placeholder="مثال:
+Cake / کیک
+Bread / بریڈ
+Biscuits / بسکٹ"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Bakery','bakery')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('bakery')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- RESTAURANT -->
 
-<div id="restaurant" class="order-form">
+<div class="form" id="restaurant">
 
-<h2>🍽️ Restaurant Order / ریسٹورینٹ آرڈر</h2>
+<h2>🍽️ Restaurant Order / ریسٹورنٹ آرڈر</h2>
 
-<div class="form-group">
+<p class="note">ریسٹورنٹ اور کھانے کی معلومات دیں۔</p>
+
 <label>Name / نام</label>
-<input id="restaurant_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="r_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="restaurant_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="r_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
+<label>Restaurant / ریسٹورنٹ</label>
+<input id="r_restaurant" placeholder="ریسٹورنٹ کا نام">
+
 <label>Address / پتہ</label>
-<input id="restaurant_address" placeholder="Full address / مکمل پتہ">
-</div>
+<input id="r_address" placeholder="ڈیلیوری پتہ">
 
-<div class="form-group">
-<label>Restaurant & Food Details / ریسٹورینٹ اور کھانے کی تفصیل</label>
-<textarea id="restaurant_items" placeholder="Restaurant name and food items"></textarea>
-</div>
+<label>Order Details / آرڈر کی تفصیل</label>
+<textarea id="r_items" placeholder="کھانے کا نام اور quantity / مقدار"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Restaurant','restaurant')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('restaurant')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- SHOPPING -->
 
-<div id="shopping" class="order-form">
+<div class="form" id="shopping">
 
-<h2>🛍️ Shopping Service / شاپنگ سروس</h2>
+<h2>🛍️ Shopping / شاپنگ</h2>
 
-<div class="form-group">
+<p class="note">جو بھی شاپنگ کروانی ہے اس کی تفصیل دیں۔</p>
+
 <label>Name / نام</label>
-<input id="shopping_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="s_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="shopping_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="s_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Address / پتہ</label>
-<input id="shopping_address" placeholder="Full address / مکمل پتہ">
-</div>
+<input id="s_address" placeholder="مکمل پتہ">
 
-<div class="form-group">
-<label>Shopping Items / شاپنگ سامان</label>
-<textarea id="shopping_items" placeholder="Write items you want us to purchase"></textarea>
-</div>
+<label>Shopping Items / شاپنگ آئٹمز</label>
+<textarea id="s_items" placeholder="جو چیزیں چاہیے ان کے نام لکھیں"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Shopping','shopping')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('shopping')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- REACHER RIDE -->
 
-<div id="ride" class="order-form">
+<div class="form" id="ride">
 
 <h2>🛺 Reacher Ride / ریچر رائیڈ</h2>
 
-<div class="form-group">
+<p class="note">Pickup اور Destination کی معلومات دیں۔</p>
+
 <label>Name / نام</label>
-<input id="ride_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="ri_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="ride_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="ri_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
-<label>Pickup Location / پک اَپ مقام</label>
-<input id="ride_pickup" placeholder="Pickup location">
-</div>
+<label>Pickup / پک اپ</label>
+<input id="ri_pickup" placeholder="کہاں سے پک کرنا ہے؟">
 
-<div class="form-group">
 <label>Destination / منزل</label>
-<input id="ride_drop" placeholder="Destination">
-</div>
+<input id="ri_destination" placeholder="کہاں جانا ہے؟">
 
-<div class="form-group">
-<label>Ride Details / رائیڈ کی تفصیل</label>
-<textarea id="ride_items" placeholder="Number of passengers / مسافروں کی تعداد وغیرہ"></textarea>
-</div>
+<label>Additional Details / اضافی معلومات</label>
+<textarea id="ri_items" placeholder="کوئی اضافی معلومات"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Reacher Ride','ride')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('ride')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- RECHARGE -->
 
-<div id="recharge" class="order-form">
+<div class="form" id="recharge">
 
 <h2>📱 Recharge & Packages / ریچارج اور پیکیجز</h2>
 
-<div class="form-group">
+<p class="note">اپنا نیٹ ورک اور مطلوبہ پیکیج لکھیں۔</p>
+
 <label>Name / نام</label>
-<input id="recharge_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="re_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Mobile Number / موبائل نمبر</label>
-<input id="recharge_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="re_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Network / نیٹ ورک</label>
-<select id="recharge_network">
-<option value="">Select Network / نیٹ ورک منتخب کریں</option>
+<select id="re_network">
+<option value="">Select / منتخب کریں</option>
 <option>Jazz</option>
 <option>Zong</option>
 <option>Telenor</option>
 <option>Ufone</option>
 </select>
-</div>
 
-<div class="form-group">
-<label>Package / پیکیج</label>
-<textarea id="recharge_items" placeholder="Package name or recharge amount / پیکیج یا ریچارج رقم"></textarea>
-</div>
+<label>Package Details / پیکیج کی تفصیل</label>
+<textarea id="re_items" placeholder="مثال:
+Monthly Internet Package
+ماہانہ انٹرنیٹ پیکیج"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Recharge & Packages','recharge')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('recharge')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <!-- BILL PAYMENT -->
 
-<div id="bill" class="order-form">
+<div class="form" id="bill">
 
-<h2>🧾 Bill Payment / بل ادائیگی</h2>
+<h2>🧾 Bill Payment / بل پیمنٹ</h2>
 
-<div class="form-group">
+<p class="note">بل کی قسم اور ضروری معلومات درج کریں۔</p>
+
 <label>Name / نام</label>
-<input id="bill_name" placeholder="Your name / اپنا نام">
-</div>
+<input id="bi_name" placeholder="اپنا نام">
 
-<div class="form-group">
 <label>Phone / فون نمبر</label>
-<input id="bill_phone" type="tel" placeholder="03XX XXXXXXX">
-</div>
+<input id="bi_phone" type="tel" placeholder="03XX XXXXXXX">
 
-<div class="form-group">
 <label>Bill Type / بل کی قسم</label>
-<select id="bill_type">
-<option value="">Select Bill / بل منتخب کریں</option>
+<select id="bi_type">
+<option value="">Select / منتخب کریں</option>
 <option>Electricity / بجلی</option>
 <option>Gas / گیس</option>
 <option>Water / پانی</option>
 <option>Internet / انٹرنیٹ</option>
 <option>Other / دیگر</option>
 </select>
-</div>
 
-<div class="form-group">
 <label>Bill Details / بل کی تفصیل</label>
-<textarea id="bill_items" placeholder="Bill number, amount and other details"></textarea>
-</div>
+<textarea id="bi_items" placeholder="Consumer number / Account number / بل کی ضروری معلومات"></textarea>
 
 <div class="buttons">
-<button class="whatsapp-btn" onclick="sendOrder('Bill Payment','bill')">🟢 WhatsApp Order</button>
-<button class="call-btn" onclick="callNow()">📞 Call Now</button>
+<button class="whatsapp" onclick="sendOrder('bill')">💬 WhatsApp Order</button>
+<button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
 
-<button class="close-form" onclick="closeForms()">Close / بند کریں</button>
+<button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 
 <button class="chat" onclick="openWhatsApp()">
-💬 Chat on WhatsApp / واٹس ایپ پر رابطہ کریں
+💬 Chat with Reacher Digital / ریچر ڈیجیٹل سے رابطہ کریں
 </button>
 
 </div>
@@ -661,8 +612,15 @@ Quantity / مقدار"></textarea>
 
 <script>
 
-const whatsappNumber = "923255085802";
-const callNumber = "03255085802";
+const PHONE="923255085802";
+
+function closeForms(){
+
+document.querySelectorAll(".form").forEach(function(form){
+form.style.display="none";
+});
+
+}
 
 function openForm(id){
 
@@ -679,226 +637,222 @@ block:"start"
 
 }
 
-function closeForms(){
+function callNow(){
 
-document.querySelectorAll(".order-form").forEach(function(form){
-form.style.display="none";
-});
+window.location.href="tel:+923255085802";
 
 }
 
-function callNow(){
+function openWhatsApp(){
 
-window.location.href="tel:"+callNumber;
+const message=
+"Assalam-o-Alaikum, I want to contact Reacher Digital.";
+
+window.open(
+"https://wa.me/"+PHONE+
+"?text="+encodeURIComponent(message),
+"_blank"
+);
 
 }
 
 function getValue(id){
 
-const element=document.getElementById(id);
+const el=document.getElementById(id);
 
-if(!element) return "";
-
-return element.value.trim();
+return el ? el.value.trim() : "";
 
 }
 
-function sendOrder(service,prefix){
+function sendOrder(type){
 
+let name="";
+let phone="";
 let message="";
 
-const name=getValue(prefix+"_name");
-const phone=getValue(prefix+"_phone");
+if(type==="grocery"){
 
-if(!name || !phone){
-
-alert("Please enter your Name and Phone Number.\nبراہ کرم اپنا نام اور فون نمبر درج کریں۔");
-
-return;
-
-}
+name=getValue("g_name");
+phone=getValue("g_phone");
 
 message=
-"🔵 Reacher Digital\n\n"+
-"📋 Service / سروس: "+service+"\n\n"+
-"👤 Name / نام: "+name+"\n\n"+
-"📱 Phone / فون: "+phone+"\n\n";
+"🛒 NEW GROCERY ORDER\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Address / پتہ: "+getValue("g_address")+"\n\n"+
+"Items / سامان:\n"+getValue("g_items");
 
-if(prefix==="grocery"){
+}
 
-const address=getValue("grocery_address");
-const items=getValue("grocery_items");
+else if(type==="food"){
 
-if(!address || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
+name=getValue("f_name");
+phone=getValue("f_phone");
+
+message=
+"🍔 NEW FOOD ORDER\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Address / پتہ: "+getValue("f_address")+"\n\n"+
+"Food / کھانا:\n"+getValue("f_items");
+
+}
+
+else if(type==="pharmacy"){
+
+name=getValue("p_name");
+phone=getValue("p_phone");
+
+message=
+"💊 NEW PHARMACY ORDER\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Address / پتہ: "+getValue("p_address")+"\n\n"+
+"Medicine / دوا:\n"+getValue("p_items");
+
+}
+
+else if(type==="delivery"){
+
+name=getValue("d_name");
+phone=getValue("d_phone");
+
+message=
+"🛵 NEW DELIVERY REQUEST\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Pickup / پک اپ: "+getValue("d_pickup")+"\n"+
+"Delivery / ڈیلیوری: "+getValue("d_address")+"\n\n"+
+"Item / سامان:\n"+getValue("d_items");
+
+}
+
+else if(type==="parcel"){
+
+name=getValue("pa_name");
+phone=getValue("pa_phone");
+
+message=
+"📦 NEW PARCEL REQUEST\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Pickup / پک اپ: "+getValue("pa_pickup")+"\n"+
+"Drop / ڈراپ: "+getValue("pa_drop")+"\n\n"+
+"Parcel / پارسل:\n"+getValue("pa_items");
+
+}
+
+else if(type==="bakery"){
+
+name=getValue("b_name");
+phone=getValue("b_phone");
+
+message=
+"🥐 NEW BAKERY ORDER\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Address / پتہ: "+getValue("b_address")+"\n\n"+
+"Items / آئٹمز:\n"+getValue("b_items");
+
+}
+
+else if(type==="restaurant"){
+
+name=getValue("r_name");
+phone=getValue("r_phone");
+
+message=
+"🍽️ NEW RESTAURANT ORDER\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Restaurant / ریسٹورنٹ: "+getValue("r_restaurant")+"\n"+
+"Address / پتہ: "+getValue("r_address")+"\n\n"+
+"Order / آرڈر:\n"+getValue("r_items");
+
+}
+
+else if(type==="shopping"){
+
+name=getValue("s_name");
+phone=getValue("s_phone");
+
+message=
+"🛍️ NEW SHOPPING REQUEST\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Address / پتہ: "+getValue("s_address")+"\n\n"+
+"Items / آئٹمز:\n"+getValue("s_items");
+
+}
+
+else if(type==="ride"){
+
+name=getValue("ri_name");
+phone=getValue("ri_phone");
+
+message=
+"🛺 NEW REACHER RIDE REQUEST\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Pickup / پک اپ: "+getValue("ri_pickup")+"\n"+
+"Destination / منزل: "+getValue("ri_destination")+"\n\n"+
+"Details / تفصیل:\n"+getValue("ri_items");
+
+}
+
+else if(type==="recharge"){
+
+name=getValue("re_name");
+phone=getValue("re_phone");
+
+message=
+"📱 NEW RECHARGE REQUEST\n\n"+
+"Name / نام: "+name+"\n"+
+"Mobile / موبائل: "+phone+"\n"+
+"Network / نیٹ ورک: "+getValue("re_network")+"\n\n"+
+"Package / پیکیج:\n"+getValue("re_items");
+
+}
+
+else if(type==="bill"){
+
+name=getValue("bi_name");
+phone=getValue("bi_phone");
+
+message=
+"🧾 NEW BILL PAYMENT REQUEST\n\n"+
+"Name / نام: "+name+"\n"+
+"Phone / فون: "+phone+"\n"+
+"Bill Type / بل کی قسم: "+getValue("bi_type")+"\n\n"+
+"Details / تفصیل:\n"+getValue("bi_items");
+
+}
+
+if(!name){
+
+alert("Please enter your name / براہِ کرم اپنا نام درج کریں۔");
+
 return;
-}
-
-message+=
-"📍 Address / پتہ: "+address+"\n\n"+
-"🛒 Items / سامان:\n"+items;
 
 }
 
-else if(prefix==="food"){
+if(!phone){
 
-const address=getValue("food_address");
-const items=getValue("food_items");
+alert("Please enter your phone number / براہِ کرم فون نمبر درج کریں۔");
 
-if(!address || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
 return;
-}
-
-message+=
-"📍 Address / پتہ: "+address+"\n\n"+
-"🍔 Food Order / کھانے کا آرڈر:\n"+items;
 
 }
 
-else if(prefix==="pharmacy"){
-
-const address=getValue("pharmacy_address");
-const items=getValue("pharmacy_items");
-
-if(!address || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📍 Address / پتہ: "+address+"\n\n"+
-"💊 Medicine / ادویات:\n"+items;
+window.open(
+"https://wa.me/"+PHONE+
+"?text="+encodeURIComponent(message),
+"_blank"
+);
 
 }
 
-else if(prefix==="delivery"){
+</script>
 
-const pickup=getValue("delivery_pickup");
-const drop=getValue("delivery_drop");
-const items=getValue("delivery_items");
-
-if(!pickup || !drop){
-alert("Please complete pickup and drop details.\nبراہ کرم پک اَپ اور ڈراپ کی معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📍 Pickup / پک اَپ: "+pickup+"\n\n"+
-"📍 Drop / ڈراپ: "+drop+"\n\n"+
-"📦 Details / تفصیل:\n"+items;
-
-}
-
-else if(prefix==="parcel"){
-
-const pickup=getValue("parcel_pickup");
-const drop=getValue("parcel_drop");
-const items=getValue("parcel_items");
-
-if(!pickup || !drop || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📍 Pickup / پک اَپ: "+pickup+"\n\n"+
-"📍 Drop / ڈراپ: "+drop+"\n\n"+
-"📦 Parcel / پارسل:\n"+items;
-
-}
-
-else if(prefix==="bakery"){
-
-const address=getValue("bakery_address");
-const items=getValue("bakery_items");
-
-if(!address || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📍 Address / پتہ: "+address+"\n\n"+
-"🥐 Bakery Items / بیکری سامان:\n"+items;
-
-}
-
-else if(prefix==="restaurant"){
-
-const address=getValue("restaurant_address");
-const items=getValue("restaurant_items");
-
-if(!address || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📍 Address / پتہ: "+address+"\n\n"+
-"🍽️ Restaurant Order / ریسٹورینٹ آرڈر:\n"+items;
-
-}
-
-else if(prefix==="shopping"){
-
-const address=getValue("shopping_address");
-const items=getValue("shopping_items");
-
-if(!address || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📍 Address / پتہ: "+address+"\n\n"+
-"🛍️ Shopping Items / شاپنگ سامان:\n"+items;
-
-}
-
-else if(prefix==="ride"){
-
-const pickup=getValue("ride_pickup");
-const drop=getValue("ride_drop");
-const items=getValue("ride_items");
-
-if(!pickup || !drop){
-alert("Please complete pickup and destination.\nبراہ کرم پک اَپ اور منزل درج کریں۔");
-return;
-}
-
-message+=
-"📍 Pickup / پک اَپ: "+pickup+"\n\n"+
-"📍 Destination / منزل: "+drop+"\n\n"+
-"🛺 Ride Details / رائیڈ تفصیل:\n"+items;
-
-}
-
-else if(prefix==="recharge"){
-
-const network=getValue("recharge_network");
-const items=getValue("recharge_items");
-
-if(!network || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"📡 Network / نیٹ ورک: "+network+"\n\n"+
-"📱 Package / پیکیج:\n"+items;
-
-}
-
-else if(prefix==="bill"){
-
-const type=getValue("bill_type");
-const items=getValue("bill_items");
-
-if(!type || !items){
-alert("Please complete all fields.\nبراہ کرم تمام معلومات مکمل کریں۔");
-return;
-}
-
-message+=
-"🧾 Bill Type
+</body>
+</html>
