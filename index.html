@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="ur">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#1565c0">
   <title>Reacher Digital</title>
   <link rel="manifest" href="manifest.json">
+
   <style>
     * {
       box-sizing: border-box;
@@ -61,26 +62,37 @@
 
     .services {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
+      align-items: stretch;
     }
 
     .service {
       background: white;
       border-radius: 15px;
-      padding: 20px;
+      padding: 18px 12px;
       text-align: center;
       box-shadow: 0 3px 12px rgba(0,0,0,.08);
       cursor: pointer;
+      min-width: 0;
+      min-height: 125px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .service .icon {
-      font-size: 40px;
+      font-size: 38px;
       margin-bottom: 10px;
+      line-height: 1;
     }
 
     .service h3 {
-      font-size: 17px;
+      font-size: 16px;
+      line-height: 1.25;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .products {
@@ -135,7 +147,7 @@
 
     @media (min-width: 600px) {
       .services {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
   </style>
@@ -182,8 +194,8 @@
     </div>
 
     <div class="service" onclick="selectService('Parcel / Pickup & Drop')">
-  <div class="icon">📦</div>
-  <h3>Parcel / Pickup & Drop</h3>
+      <div class="icon">📦</div>
+      <h3>Parcel / Pickup & Drop</h3>
     </div>
 
     <div class="service" onclick="selectService('Bakery')">
@@ -199,20 +211,22 @@
     <div class="service" onclick="selectService('Shopping')">
       <div class="icon">🛍️</div>
       <h3>Shopping</h3>
-    <<div class="service" onclick="selectService('Reacher Ride')">
-  <div class="icon">🛺</div>
-  <h3>Reacher Ride</h3>
-</div>
+    </div>
 
-<div class="service" onclick="selectService('Recharge & Packages')">
-  <div class="icon">📱</div>
-  <h3>Recharge & Packages</h3>
-</div>
+    <div class="service" onclick="selectService('Reacher Ride')">
+      <div class="icon">🛺</div>
+      <h3>Reacher Ride</h3>
+    </div>
 
-<div class="service" onclick="selectService('Bill Payment')">
-  <div class="icon">🧾</div>
-  <h3>Bill Payment</h3>
-</div>
+    <div class="service" onclick="selectService('Recharge & Packages')">
+      <div class="icon">📱</div>
+      <h3>Recharge & Packages</h3>
+    </div>
+
+    <div class="service" onclick="selectService('Bill Payment')">
+      <div class="icon">🧾</div>
+      <h3>Bill Payment</h3>
+    </div>
 
   </div>
 
@@ -398,8 +412,7 @@
 
 </script>
 
-</body>
-  <script>
+<script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("./sw.js")
@@ -407,5 +420,7 @@
         .catch(error => console.error("Service Worker error:", error));
     });
   }
-  </script>
+</script>
+
+</body>
 </html>
