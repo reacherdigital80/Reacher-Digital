@@ -27,6 +27,8 @@ body{
   direction:ltr;
 }
 
+/* ================= HEADER ================= */
+
 header{
   background:linear-gradient(135deg,#0b3d91,#1565c0,#2196f3);
   color:white;
@@ -66,6 +68,8 @@ header p{
   direction:ltr;
 }
 
+/* ================= CONTAINER ================= */
+
 .container{
   width:100%;
   max-width:1000px;
@@ -73,9 +77,11 @@ header p{
   padding:30px 16px 40px;
 }
 
+/* ================= SECTION TITLE ================= */
+
 .section-title{
   text-align:center;
-  margin-bottom:22px;
+  margin-bottom:23px;
 }
 
 .section-title h2{
@@ -83,6 +89,17 @@ header p{
   font-size:25px;
   font-weight:800;
   direction:ltr;
+  letter-spacing:.2px;
+}
+
+.section-title h2::after{
+  content:"";
+  display:block;
+  width:42px;
+  height:3px;
+  background:#2196f3;
+  border-radius:10px;
+  margin:7px auto 6px;
 }
 
 .section-title p{
@@ -91,20 +108,23 @@ header p{
   direction:rtl;
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 
 .services{
   direction:ltr;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:15px;
+  gap:14px;
 }
 
+/* SERVICE CARD */
+
 .service{
+  position:relative;
   direction:ltr;
-  min-height:155px;
-  padding:22px 10px;
-  background:linear-gradient(145deg,#fff,#f8fbff);
+  min-height:158px;
+  padding:20px 10px 18px;
+  background:linear-gradient(145deg,#ffffff,#f8fbff);
   border:1px solid #e1eaf5;
   border-radius:20px;
   display:flex;
@@ -113,49 +133,107 @@ header p{
   align-items:center;
   text-align:center;
   cursor:pointer;
-  box-shadow:0 7px 22px rgba(13,71,161,.07);
+  overflow:hidden;
+  box-shadow:
+    0 7px 22px rgba(13,71,161,.07),
+    0 2px 5px rgba(13,71,161,.03);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+/* Small blue highlight */
+
+.service::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:22%;
+  right:22%;
+  height:3px;
+  border-radius:0 0 10px 10px;
+  background:linear-gradient(90deg,#1565c0,#42a5f5);
+  opacity:.65;
+}
+
+/* Soft hover glow */
+
+.service::after{
+  content:"";
+  position:absolute;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:rgba(33,150,243,.06);
+  top:-45px;
+  right:-45px;
   transition:.25s;
 }
 
 .service:hover{
   transform:translateY(-5px);
-  box-shadow:0 14px 32px rgba(13,71,161,.14);
-  border-color:#b8d5f5;
+  box-shadow:
+    0 15px 32px rgba(13,71,161,.13),
+    0 3px 8px rgba(13,71,161,.04);
+  border-color:#bdd8f4;
+}
+
+.service:hover::after{
+  transform:scale(1.4);
 }
 
 .service:active{
   transform:scale(.97);
 }
 
+/* ICON */
+
 .icon{
-  width:58px;
-  height:58px;
-  border-radius:17px;
-  background:#edf5ff;
+  position:relative;
+  z-index:1;
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#eef7ff,#e5f1fc);
+  border:1px solid #e0edf9;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:31px;
-  margin-bottom:10px;
+  margin-bottom:11px;
+  box-shadow:
+    0 5px 12px rgba(21,101,192,.08),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  transition:.25s;
+}
+
+.service:hover .icon{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:0 7px 15px rgba(21,101,192,.12);
 }
 
 .service h3{
+  position:relative;
+  z-index:1;
   direction:ltr;
   color:#1e3552;
-  font-size:16px;
+  font-size:15px;
   line-height:1.4;
   font-weight:800;
+  max-width:100%;
 }
 
 .service h3 span{
   display:block;
   direction:rtl;
   color:#718096;
-  font-size:13px;
+  font-size:12px;
   font-weight:500;
+  margin-top:2px;
 }
 
-/* FORM */
+/* ================= FORMS ================= */
 
 .form{
   display:none;
@@ -236,6 +314,8 @@ textarea{
   resize:vertical;
 }
 
+/* ================= BUTTONS ================= */
+
 .buttons{
   direction:ltr;
   display:grid;
@@ -284,6 +364,8 @@ button:hover{
   box-shadow:0 7px 20px rgba(37,211,102,.20);
 }
 
+/* ================= FOOTER ================= */
+
 .footer{
   text-align:center;
   color:#7a8493;
@@ -296,34 +378,93 @@ button:hover{
   font-size:14px;
 }
 
+/* ================= TABLET / DESKTOP ================= */
+
 @media(min-width:600px){
+
   .services{
     grid-template-columns:repeat(4,1fr);
+    gap:15px;
+  }
+
+  .service{
+    min-height:165px;
+  }
+
+  /*
+    آخری 3 cards کو آخری row میں
+    صاف اور balanced رکھا گیا ہے۔
+  */
+
+  .service:nth-child(9){
+    grid-column:1;
+  }
+
+  .service:nth-child(10){
+    grid-column:2;
+  }
+
+  .service:nth-child(11){
+    grid-column:3;
   }
 }
 
+/* ================= SMALL MOBILE ================= */
+
 @media(max-width:380px){
+
+  .container{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
   .services{
     gap:11px;
   }
 
   .service{
-    min-height:140px;
-    padding:17px 8px;
+    min-height:145px;
+    padding:17px 7px;
+    border-radius:18px;
   }
 
   .icon{
-    width:52px;
-    height:52px;
+    width:53px;
+    height:53px;
     font-size:28px;
+    border-radius:16px;
+    margin-bottom:9px;
   }
 
   .service h3{
     font-size:14px;
   }
 
+  .service h3 span{
+    font-size:11px;
+  }
+
   .form{
     padding:18px;
+  }
+}
+
+/* ================= VERY SMALL SCREENS ================= */
+
+@media(max-width:330px){
+
+  .service{
+    min-height:138px;
+  }
+
+  .icon{
+    width:50px;
+    height:50px;
+    font-size:26px;
+  }
+
+  .service h3{
+    font-size:13px;
   }
 }
 </style>
@@ -332,12 +473,14 @@ button:hover{
 <body>
 
 <header>
+
   <div class="logo">
     <img src="file_000000008d5082088c58200b4d4e1126.png" alt="Reacher Digital Logo">
   </div>
 
   <h1>Reacher Digital</h1>
   <p>Digital Delivery & Ordering</p>
+
 </header>
 
 <div class="container">
@@ -347,66 +490,79 @@ button:hover{
   <p>ہماری سروسز</p>
 </div>
 
+<!-- ================= SERVICES ================= -->
+
 <div class="services">
 
-<div class="service" onclick="openForm('grocery')">
-  <div class="icon">🛒</div>
-  <h3>Grocery<span>گروسری</span></h3>
+  <!-- 1 -->
+  <div class="service" onclick="openForm('grocery')">
+    <div class="icon">🛒</div>
+    <h3>Grocery<span>گروسری</span></h3>
+  </div>
+
+  <!-- 2 -->
+  <div class="service" onclick="openForm('food')">
+    <div class="icon">🍔</div>
+    <h3>Food<span>کھانا</span></h3>
+  </div>
+
+  <!-- 3 -->
+  <div class="service" onclick="openForm('pharmacy')">
+    <div class="icon">💊</div>
+    <h3>Pharmacy<span>فارمیسی</span></h3>
+  </div>
+
+  <!-- 4 -->
+  <div class="service" onclick="openForm('delivery')">
+    <div class="icon">🛵</div>
+    <h3>Delivery<span>ڈیلیوری</span></h3>
+  </div>
+
+  <!-- 5 -->
+  <div class="service" onclick="openForm('parcel')">
+    <div class="icon">📦</div>
+    <h3>Parcel / Pickup & Drop<span>پارسل / پک اپ اور ڈراپ</span></h3>
+  </div>
+
+  <!-- 6 -->
+  <div class="service" onclick="openForm('bakery')">
+    <div class="icon">🥐</div>
+    <h3>Bakery<span>بیکری</span></h3>
+  </div>
+
+  <!-- 7 -->
+  <div class="service" onclick="openForm('restaurant')">
+    <div class="icon">🍽️</div>
+    <h3>Restaurant<span>ریسٹورنٹ</span></h3>
+  </div>
+
+  <!-- 8 -->
+  <div class="service" onclick="openForm('shopping')">
+    <div class="icon">🛍️</div>
+    <h3>Shopping<span>شاپنگ</span></h3>
+  </div>
+
+  <!-- 9 -->
+  <div class="service" onclick="openForm('ride')">
+    <div class="icon">🛺</div>
+    <h3>Reacher Ride<span>ریچر رائیڈ</span></h3>
+  </div>
+
+  <!-- 10 -->
+  <div class="service" onclick="openForm('recharge')">
+    <div class="icon">📱</div>
+    <h3>Recharge & Packages<span>ریچارج اور پیکیجز</span></h3>
+  </div>
+
+  <!-- 11 -->
+  <div class="service" onclick="openForm('bill')">
+    <div class="icon">🧾</div>
+    <h3>Bill Payment<span>بل پیمنٹ</span></h3>
+  </div>
+
 </div>
 
-<div class="service" onclick="openForm('food')">
-  <div class="icon">🍔</div>
-  <h3>Food<span>کھانا</span></h3>
-</div>
-
-<div class="service" onclick="openForm('pharmacy')">
-  <div class="icon">💊</div>
-  <h3>Pharmacy<span>فارمیسی</span></h3>
-</div>
-
-<div class="service" onclick="openForm('delivery')">
-  <div class="icon">🛵</div>
-  <h3>Delivery<span>ڈیلیوری</span></h3>
-</div>
-
-<div class="service" onclick="openForm('parcel')">
-  <div class="icon">📦</div>
-  <h3>Parcel / Pickup & Drop<span>پارسل / پک اپ اور ڈراپ</span></h3>
-</div>
-
-<div class="service" onclick="openForm('bakery')">
-  <div class="icon">🥐</div>
-  <h3>Bakery<span>بیکری</span></h3>
-</div>
-
-<div class="service" onclick="openForm('restaurant')">
-  <div class="icon">🍽️</div>
-  <h3>Restaurant<span>ریسٹورنٹ</span></h3>
-</div>
-
-<div class="service" onclick="openForm('shopping')">
-  <div class="icon">🛍️</div>
-  <h3>Shopping<span>شاپنگ</span></h3>
-</div>
-
-<div class="service" onclick="openForm('ride')">
-  <div class="icon">🛺</div>
-  <h3>Reacher Ride<span>ریچر رائیڈ</span></h3>
-</div>
-
-<div class="service" onclick="openForm('recharge')">
-  <div class="icon">📱</div>
-  <h3>Recharge & Packages<span>ریچارج اور پیکیجز</span></h3>
-</div>
-
-<div class="service" onclick="openForm('bill')">
-  <div class="icon">🧾</div>
-  <h3>Bill Payment<span>بل پیمنٹ</span></h3>
-</div>
-
-</div>
-
-<!-- GROCERY -->
+<!-- ================= GROCERY ================= -->
 
 <div class="form" id="grocery">
 <h2>🛒 Grocery Order / گروسری آرڈر</h2>
@@ -434,7 +590,7 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- FOOD -->
+<!-- ================= FOOD ================= -->
 
 <div class="form" id="food">
 <h2>🍔 Food Order / کھانے کا آرڈر</h2>
@@ -460,7 +616,7 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- PHARMACY -->
+<!-- ================= PHARMACY ================= -->
 
 <div class="form" id="pharmacy">
 <h2>💊 Pharmacy Order / فارمیسی آرڈر</h2>
@@ -486,7 +642,7 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- DELIVERY -->
+<!-- ================= DELIVERY ================= -->
 
 <div class="form" id="delivery">
 <h2>🛵 Delivery / ڈیلیوری</h2>
@@ -515,7 +671,7 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- PARCEL -->
+<!-- ================= PARCEL ================= -->
 
 <div class="form" id="parcel">
 <h2>📦 Parcel / Pickup & Drop</h2>
@@ -544,7 +700,7 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- BAKERY -->
+<!-- ================= BAKERY ================= -->
 
 <div class="form" id="bakery">
 <h2>🥐 Bakery Order / بیکری آرڈر</h2>
@@ -572,7 +728,7 @@ Biscuits / بسکٹ"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- RESTAURANT -->
+<!-- ================= RESTAURANT ================= -->
 
 <div class="form" id="restaurant">
 <h2>🍽️ Restaurant Order / ریسٹورنٹ آرڈر</h2>
@@ -601,7 +757,7 @@ Biscuits / بسکٹ"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- SHOPPING -->
+<!-- ================= SHOPPING ================= -->
 
 <div class="form" id="shopping">
 <h2>🛍️ Shopping / شاپنگ</h2>
@@ -627,7 +783,7 @@ Biscuits / بسکٹ"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- RIDE -->
+<!-- ================= RIDE ================= -->
 
 <div class="form" id="ride">
 <h2>🛺 Reacher Ride / ریچر رائیڈ</h2>
@@ -656,7 +812,7 @@ Biscuits / بسکٹ"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- RECHARGE -->
+<!-- ================= RECHARGE ================= -->
 
 <div class="form" id="recharge">
 <h2>📱 Recharge & Packages / ریچارج اور پیکیجز</h2>
@@ -688,7 +844,7 @@ Biscuits / بسکٹ"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- BILL -->
+<!-- ================= BILL ================= -->
 
 <div class="form" id="bill">
 <h2>🧾 Bill Payment / بل پیمنٹ</h2>
@@ -721,9 +877,13 @@ Biscuits / بسکٹ"></textarea>
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
+<!-- ================= CONTACT ================= -->
+
 <button class="chat" onclick="openWhatsApp()">
 💬 Chat with Reacher Digital / ریچر ڈیجیٹل سے رابطہ کریں
 </button>
+
+<!-- ================= FOOTER ================= -->
 
 <div class="footer">
 <strong>Reacher Digital</strong><br>
