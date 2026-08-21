@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ur" dir="ltr">
 <head>
-<meta name="theme-color" content="#1565c0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1565c0">
@@ -17,6 +16,7 @@
 }
 
 html{
+  direction:ltr;
   scroll-behavior:smooth;
 }
 
@@ -24,14 +24,14 @@ body{
   background:linear-gradient(180deg,#f4f8fd,#eef4fa);
   color:#172033;
   line-height:1.6;
+  direction:ltr;
 }
 
-/* HEADER */
-.main-header{
+header{
   background:linear-gradient(135deg,#0b3d91,#1565c0,#2196f3);
   color:white;
   text-align:center;
-  padding:28px 18px 32px;
+  padding:30px 18px 34px;
   box-shadow:0 8px 30px rgba(13,71,161,.18);
 }
 
@@ -54,17 +54,18 @@ body{
   object-fit:contain;
 }
 
-.main-header h1{
+header h1{
   font-size:29px;
   font-weight:800;
+  direction:ltr;
 }
 
-.main-header p{
+header p{
   font-size:14px;
-  opacity:.92;
+  opacity:.9;
+  direction:ltr;
 }
 
-/* CONTAINER */
 .container{
   width:100%;
   max-width:1000px;
@@ -72,26 +73,16 @@ body{
   padding:30px 16px 40px;
 }
 
-/* SECTION TITLE */
 .section-title{
   text-align:center;
-  margin-bottom:23px;
+  margin-bottom:22px;
 }
 
 .section-title h2{
   color:#123d73;
   font-size:25px;
   font-weight:800;
-}
-
-.section-title h2:after{
-  content:"";
-  display:block;
-  width:42px;
-  height:3px;
-  background:#2196f3;
-  border-radius:10px;
-  margin:7px auto 6px;
+  direction:ltr;
 }
 
 .section-title p{
@@ -101,16 +92,18 @@ body{
 }
 
 /* SERVICES */
+
 .services{
+  direction:ltr;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:14px;
+  gap:15px;
 }
 
 .service{
-  position:relative;
-  min-height:158px;
-  padding:20px 10px 18px;
+  direction:ltr;
+  min-height:155px;
+  padding:22px 10px;
   background:linear-gradient(145deg,#fff,#f8fbff);
   border:1px solid #e1eaf5;
   border-radius:20px;
@@ -120,52 +113,36 @@ body{
   align-items:center;
   text-align:center;
   cursor:pointer;
-  overflow:hidden;
-  box-shadow:
-    0 7px 22px rgba(13,71,161,.07),
-    0 2px 5px rgba(13,71,161,.03);
+  box-shadow:0 7px 22px rgba(13,71,161,.07);
   transition:.25s;
 }
 
-.service:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:22%;
-  right:22%;
-  height:3px;
-  border-radius:0 0 10px 10px;
-  background:linear-gradient(90deg,#1565c0,#42a5f5);
-  opacity:.65;
+.service:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 32px rgba(13,71,161,.14);
+  border-color:#b8d5f5;
 }
 
 .service:active{
   transform:scale(.97);
 }
 
-.service:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 32px rgba(13,71,161,.13);
-  border-color:#bdd8f4;
-}
-
 .icon{
-  width:60px;
-  height:60px;
-  border-radius:18px;
-  background:linear-gradient(145deg,#eef7ff,#e5f1fc);
-  border:1px solid #e0edf9;
+  width:58px;
+  height:58px;
+  border-radius:17px;
+  background:#edf5ff;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:31px;
-  margin-bottom:11px;
-  box-shadow:0 5px 12px rgba(21,101,192,.08);
+  margin-bottom:10px;
 }
 
 .service h3{
+  direction:ltr;
   color:#1e3552;
-  font-size:15px;
+  font-size:16px;
   line-height:1.4;
   font-weight:800;
 }
@@ -174,14 +151,15 @@ body{
   display:block;
   direction:rtl;
   color:#718096;
-  font-size:12px;
+  font-size:13px;
   font-weight:500;
-  margin-top:2px;
 }
 
-/* FORMS */
+/* FORM */
+
 .form{
   display:none;
+  direction:ltr;
   margin-top:25px;
   padding:23px;
   background:white;
@@ -192,11 +170,19 @@ body{
 }
 
 @keyframes formIn{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .form h2{
+  direction:ltr;
+  text-align:left;
   color:#1565c0;
   font-size:21px;
   font-weight:800;
@@ -214,6 +200,7 @@ body{
 
 label{
   display:block;
+  direction:ltr;
   text-align:left;
   font-weight:700;
   margin-bottom:7px;
@@ -225,6 +212,8 @@ input,
 textarea,
 select{
   width:100%;
+  direction:ltr;
+  text-align:left;
   padding:14px;
   border:1px solid #d9e2ec;
   border-radius:12px;
@@ -247,8 +236,8 @@ textarea{
   resize:vertical;
 }
 
-/* BUTTONS */
 .buttons{
+  direction:ltr;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:11px;
@@ -285,7 +274,6 @@ button:hover{
   color:#303844;
 }
 
-/* CONTACT */
 .chat{
   width:100%;
   margin-top:26px;
@@ -296,43 +284,11 @@ button:hover{
   box-shadow:0 7px 20px rgba(37,211,102,.20);
 }
 
-/* ORDER POLICY */
-.order-policy{
-  margin:26px 0 20px;
-  padding:17px;
-  background:#fffaf0;
-  border:1px solid #f0d58a;
-  border-left:4px solid #f0ad2c;
-  border-radius:16px;
-  box-shadow:0 6px 18px rgba(120,90,20,.07);
-  direction:rtl;
-  text-align:right;
-}
-
-.order-policy h3{
-  margin-bottom:7px;
-  color:#8a5a00;
-  font-size:16px;
-}
-
-.order-policy p{
-  margin:6px 0;
-  color:#5f5a4c;
-  font-size:13px;
-  line-height:1.9;
-}
-
-.order-policy .warning{
-  color:#795200;
-  font-weight:bold;
-}
-
-/* FOOTER */
 .footer{
   text-align:center;
   color:#7a8493;
   font-size:13px;
-  padding:20px 10px 5px;
+  padding:28px 10px 5px;
 }
 
 .footer strong{
@@ -340,49 +296,30 @@ button:hover{
   font-size:14px;
 }
 
-/* DESKTOP */
 @media(min-width:600px){
   .services{
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
-  }
-
-  .service{
-    min-height:165px;
   }
 }
 
-/* SMALL MOBILE */
 @media(max-width:380px){
-  .container{
-    padding-left:12px;
-    padding-right:12px;
-  }
-
   .services{
     gap:11px;
   }
 
   .service{
-    min-height:145px;
-    padding:17px 7px;
-    border-radius:18px;
+    min-height:140px;
+    padding:17px 8px;
   }
 
   .icon{
-    width:53px;
-    height:53px;
+    width:52px;
+    height:52px;
     font-size:28px;
-    border-radius:16px;
-    margin-bottom:9px;
   }
 
   .service h3{
     font-size:14px;
-  }
-
-  .service h3 span{
-    font-size:11px;
   }
 
   .form{
@@ -394,16 +331,13 @@ button:hover{
 
 <body>
 
-<header class="main-header">
-
+<header>
   <div class="logo">
-    <img src="file_000000008d5082088c58200b4d4e1126.png"
-         alt="Reacher Digital Logo">
+    <img src="file_000000008d5082088c58200b4d4e1126.png" alt="Reacher Digital Logo">
   </div>
 
   <h1>Reacher Digital</h1>
   <p>Digital Delivery & Ordering</p>
-
 </header>
 
 <div class="container">
@@ -473,6 +407,7 @@ button:hover{
 </div>
 
 <!-- GROCERY -->
+
 <div class="form" id="grocery">
 <h2>🛒 Grocery Order / گروسری آرڈر</h2>
 <p class="note">اپنی مطلوبہ گروسری اور مقدار لکھیں۔ ہم سامان arrange کرکے آپ تک پہنچائیں گے۔</p>
@@ -487,17 +422,20 @@ button:hover{
 <input id="g_address" placeholder="مکمل پتہ لکھیں">
 
 <label>Grocery Items / گروسری سامان</label>
-<textarea id="g_items" placeholder="Apple / سیب - 2 کلو
+<textarea id="g_items" placeholder="مثال:
+Apple / سیب - 2 کلو
 Potato / آلو - 3 کلو"></textarea>
 
 <div class="buttons">
 <button class="whatsapp" onclick="sendOrder('grocery')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- FOOD -->
+
 <div class="form" id="food">
 <h2>🍔 Food Order / کھانے کا آرڈر</h2>
 <p class="note">اپنے کھانے اور مقدار کی تفصیل لکھیں۔</p>
@@ -518,10 +456,12 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('food')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- PHARMACY -->
+
 <div class="form" id="pharmacy">
 <h2>💊 Pharmacy Order / فارمیسی آرڈر</h2>
 <p class="note">دوا یا فارمیسی آئٹمز کی تفصیل لکھیں۔</p>
@@ -542,10 +482,12 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('pharmacy')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- DELIVERY -->
+
 <div class="form" id="delivery">
 <h2>🛵 Delivery / ڈیلیوری</h2>
 <p class="note">Pickup اور Delivery کی معلومات دیں۔</p>
@@ -569,10 +511,12 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('delivery')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- PARCEL -->
+
 <div class="form" id="parcel">
 <h2>📦 Parcel / Pickup & Drop</h2>
 <p class="note">پارسل کے Pickup اور Drop کی معلومات دیں۔</p>
@@ -596,10 +540,12 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('parcel')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- BAKERY -->
+
 <div class="form" id="bakery">
 <h2>🥐 Bakery Order / بیکری آرڈر</h2>
 <p class="note">بیکری آئٹمز اور مقدار لکھیں۔</p>
@@ -622,10 +568,12 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('bakery')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- RESTAURANT -->
+
 <div class="form" id="restaurant">
 <h2>🍽️ Restaurant Order / ریسٹورنٹ آرڈر</h2>
 <p class="note">ریسٹورنٹ اور کھانے کی معلومات دیں۔</p>
@@ -649,10 +597,12 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('restaurant')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- SHOPPING -->
+
 <div class="form" id="shopping">
 <h2>🛍️ Shopping / شاپنگ</h2>
 <p class="note">جو بھی شاپنگ کروانی ہے اس کی تفصیل دیں۔</p>
@@ -673,10 +623,12 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('shopping')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- RIDE -->
+
 <div class="form" id="ride">
 <h2>🛺 Reacher Ride / ریچر رائیڈ</h2>
 <p class="note">Pickup اور Destination کی معلومات دیں۔</p>
@@ -700,10 +652,12 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('ride')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- RECHARGE -->
+
 <div class="form" id="recharge">
 <h2>📱 Recharge & Packages / ریچارج اور پیکیجز</h2>
 <p class="note">اپنا نیٹ ورک اور مطلوبہ پیکیج لکھیں۔</p>
@@ -730,10 +684,12 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('recharge')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
 <!-- BILL -->
+
 <div class="form" id="bill">
 <h2>🧾 Bill Payment / بل پیمنٹ</h2>
 <p class="note">بل کی قسم اور ضروری معلومات درج کریں۔</p>
@@ -761,29 +717,14 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('bill')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
+
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- CONTACT -->
 <button class="chat" onclick="openWhatsApp()">
 💬 Chat with Reacher Digital / ریچر ڈیجیٹل سے رابطہ کریں
 </button>
 
-<!-- ORDER POLICY -->
-<div class="order-policy">
-  <h3>📋 Important Order Policy / اہم آرڈر پالیسی</h3>
-
-  <p>
-    آرڈر کی خریداری شروع ہونے سے پہلے customer اپنا آرڈر cancel کر سکتا ہے۔
-    لیکن سامان خریدنے کے بعد cancellation کی صورت میں تمام ذمہ داری customer کی ہوگی۔
-  </p>
-
-  <p class="warning">
-    ⚠️ سامان خریدنے کے بعد cancellation کی صورت میں خریداری کی رقم اور متعلقہ نقصان customer کی ذمہ داری ہوگا۔
-  </p>
-</div>
-
-<!-- FOOTER -->
 <div class="footer">
 <strong>Reacher Digital</strong><br>
 Digital Delivery & Ordering<br>
@@ -823,8 +764,7 @@ function callNow(){
 }
 
 function openWhatsApp(){
-  const message=
-    "Assalam-o-Alaikum, I want to contact Reacher Digital.";
+  const message="Assalam-o-Alaikum, I want to contact Reacher Digital.";
 
   window.open(
     "https://wa.me/"+PHONE+
@@ -848,8 +788,7 @@ function sendOrder(type){
     name=getValue("g_name");
     phone=getValue("g_phone");
 
-    message=
-    "🛒 NEW GROCERY ORDER\n\n"+
+    message="🛒 NEW GROCERY ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("g_address")+"\n\n"+
@@ -860,8 +799,7 @@ function sendOrder(type){
     name=getValue("f_name");
     phone=getValue("f_phone");
 
-    message=
-    "🍔 NEW FOOD ORDER\n\n"+
+    message="🍔 NEW FOOD ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("f_address")+"\n\n"+
@@ -872,8 +810,7 @@ function sendOrder(type){
     name=getValue("p_name");
     phone=getValue("p_phone");
 
-    message=
-    "💊 NEW PHARMACY ORDER\n\n"+
+    message="💊 NEW PHARMACY ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("p_address")+"\n\n"+
@@ -884,8 +821,7 @@ function sendOrder(type){
     name=getValue("d_name");
     phone=getValue("d_phone");
 
-    message=
-    "🛵 NEW DELIVERY REQUEST\n\n"+
+    message="🛵 NEW DELIVERY REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Pickup / پک اپ: "+getValue("d_pickup")+"\n"+
@@ -897,8 +833,7 @@ function sendOrder(type){
     name=getValue("pa_name");
     phone=getValue("pa_phone");
 
-    message=
-    "📦 NEW PARCEL REQUEST\n\n"+
+    message="📦 NEW PARCEL REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Pickup / پک اپ: "+getValue("pa_pickup")+"\n"+
@@ -910,8 +845,7 @@ function sendOrder(type){
     name=getValue("b_name");
     phone=getValue("b_phone");
 
-    message=
-    "🥐 NEW BAKERY ORDER\n\n"+
+    message="🥐 NEW BAKERY ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("b_address")+"\n\n"+
@@ -922,8 +856,7 @@ function sendOrder(type){
     name=getValue("r_name");
     phone=getValue("r_phone");
 
-    message=
-    "🍽️ NEW RESTAURANT ORDER\n\n"+
+    message="🍽️ NEW RESTAURANT ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Restaurant / ریسٹورنٹ: "+getValue("r_restaurant")+"\n"+
@@ -935,8 +868,7 @@ function sendOrder(type){
     name=getValue("s_name");
     phone=getValue("s_phone");
 
-    message=
-    "🛍️ NEW SHOPPING REQUEST\n\n"+
+    message="🛍️ NEW SHOPPING REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("s_address")+"\n\n"+
@@ -947,8 +879,7 @@ function sendOrder(type){
     name=getValue("ri_name");
     phone=getValue("ri_phone");
 
-    message=
-    "🛺 NEW REACHER RIDE REQUEST\n\n"+
+    message="🛺 NEW REACHER RIDE REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Pickup / پک اپ: "+getValue("ri_pickup")+"\n"+
@@ -960,8 +891,7 @@ function sendOrder(type){
     name=getValue("re_name");
     phone=getValue("re_phone");
 
-    message=
-    "📱 NEW RECHARGE REQUEST\n\n"+
+    message="📱 NEW RECHARGE REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Mobile / موبائل: "+phone+"\n"+
     "Network / نیٹ ورک: "+getValue("re_network")+"\n\n"+
@@ -972,8 +902,7 @@ function sendOrder(type){
     name=getValue("bi_name");
     phone=getValue("bi_phone");
 
-    message=
-    "🧾 NEW BILL PAYMENT REQUEST\n\n"+
+    message="🧾 NEW BILL PAYMENT REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Bill Type / بل کی قسم: "+getValue("bi_type")+"\n\n"+
@@ -996,7 +925,7 @@ function sendOrder(type){
     "_blank"
   );
 }
+</script>
 
-  
 </body>
 </html>
