@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="ur" dir="ltr">
-<header class="main-header">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1565c0">
+<meta name="description" content="Reacher Digital - Digital Delivery & Ordering">
+<title>Reacher Digital</title>
 
-  <div class="logo">
-    <img src="file_000000008d5082088c58200b4d4e1126.png"
-         alt="Reacher Digital Logo">
-  </div>
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,"Noto Nastaliq Urdu",sans-serif;
+}
 
-  <div class="brand-text">
-    <h1>Reacher Digital</h1>
-    <p>Digital Delivery & Ordering</p>
-  </div>
+html{
+  scroll-behavior:smooth;
+}
 
-</header>
+body{
+  background:linear-gradient(180deg,#f4f8fd,#eef4fa);
+  color:#172033;
+  line-height:1.6;
+}
 
-/* ================= CONTAINER ================= */
+/* HEADER */
+.main-header{
+  background:linear-gradient(135deg,#0b3d91,#1565c0,#2196f3);
+  color:white;
+  text-align:center;
+  padding:28px 18px 32px;
+  box-shadow:0 8px 30px rgba(13,71,161,.18);
+}
 
+.logo{
+  width:82px;
+  height:82px;
+  margin:0 auto 12px;
+  border-radius:22px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.22);
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.main-header h1{
+  font-size:29px;
+  font-weight:800;
+}
+
+.main-header p{
+  font-size:14px;
+  opacity:.92;
+}
+
+/* CONTAINER */
 .container{
   width:100%;
   max-width:1000px;
@@ -23,8 +71,7 @@
   padding:30px 16px 40px;
 }
 
-/* ================= SECTION TITLE ================= */
-
+/* SECTION TITLE */
 .section-title{
   text-align:center;
   margin-bottom:23px;
@@ -34,11 +81,9 @@
   color:#123d73;
   font-size:25px;
   font-weight:800;
-  direction:ltr;
-  letter-spacing:.2px;
 }
 
-.section-title h2::after{
+.section-title h2:after{
   content:"";
   display:block;
   width:42px;
@@ -54,23 +99,18 @@
   direction:rtl;
 }
 
-/* ================= SERVICES ================= */
-
+/* SERVICES */
 .services{
-  direction:ltr;
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:14px;
 }
 
-/* SERVICE CARD */
-
 .service{
   position:relative;
-  direction:ltr;
   min-height:158px;
   padding:20px 10px 18px;
-  background:linear-gradient(145deg,#ffffff,#f8fbff);
+  background:linear-gradient(145deg,#fff,#f8fbff);
   border:1px solid #e1eaf5;
   border-radius:20px;
   display:flex;
@@ -83,15 +123,10 @@
   box-shadow:
     0 7px 22px rgba(13,71,161,.07),
     0 2px 5px rgba(13,71,161,.03);
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
+  transition:.25s;
 }
 
-/* Small blue highlight */
-
-.service::before{
+.service:before{
   content:"";
   position:absolute;
   top:0;
@@ -103,41 +138,17 @@
   opacity:.65;
 }
 
-/* Soft hover glow */
-
-.service::after{
-  content:"";
-  position:absolute;
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:rgba(33,150,243,.06);
-  top:-45px;
-  right:-45px;
-  transition:.25s;
-}
-
-.service:hover{
-  transform:translateY(-5px);
-  box-shadow:
-    0 15px 32px rgba(13,71,161,.13),
-    0 3px 8px rgba(13,71,161,.04);
-  border-color:#bdd8f4;
-}
-
-.service:hover::after{
-  transform:scale(1.4);
-}
-
 .service:active{
   transform:scale(.97);
 }
 
-/* ICON */
+.service:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 32px rgba(13,71,161,.13);
+  border-color:#bdd8f4;
+}
 
 .icon{
-  position:relative;
-  z-index:1;
   width:60px;
   height:60px;
   border-radius:18px;
@@ -148,26 +159,14 @@
   justify-content:center;
   font-size:31px;
   margin-bottom:11px;
-  box-shadow:
-    0 5px 12px rgba(21,101,192,.08),
-    inset 0 1px 0 rgba(255,255,255,.9);
-  transition:.25s;
-}
-
-.service:hover .icon{
-  transform:translateY(-2px) scale(1.04);
-  box-shadow:0 7px 15px rgba(21,101,192,.12);
+  box-shadow:0 5px 12px rgba(21,101,192,.08);
 }
 
 .service h3{
-  position:relative;
-  z-index:1;
-  direction:ltr;
   color:#1e3552;
   font-size:15px;
   line-height:1.4;
   font-weight:800;
-  max-width:100%;
 }
 
 .service h3 span{
@@ -179,11 +178,9 @@
   margin-top:2px;
 }
 
-/* ================= FORMS ================= */
-
+/* FORMS */
 .form{
   display:none;
-  direction:ltr;
   margin-top:25px;
   padding:23px;
   background:white;
@@ -194,19 +191,11 @@
 }
 
 @keyframes formIn{
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 .form h2{
-  direction:ltr;
-  text-align:left;
   color:#1565c0;
   font-size:21px;
   font-weight:800;
@@ -224,7 +213,6 @@
 
 label{
   display:block;
-  direction:ltr;
   text-align:left;
   font-weight:700;
   margin-bottom:7px;
@@ -236,8 +224,6 @@ input,
 textarea,
 select{
   width:100%;
-  direction:ltr;
-  text-align:left;
   padding:14px;
   border:1px solid #d9e2ec;
   border-radius:12px;
@@ -260,10 +246,8 @@ textarea{
   resize:vertical;
 }
 
-/* ================= BUTTONS ================= */
-
+/* BUTTONS */
 .buttons{
-  direction:ltr;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:11px;
@@ -300,6 +284,7 @@ button:hover{
   color:#303844;
 }
 
+/* CONTACT */
 .chat{
   width:100%;
   margin-top:26px;
@@ -310,13 +295,43 @@ button:hover{
   box-shadow:0 7px 20px rgba(37,211,102,.20);
 }
 
-/* ================= FOOTER ================= */
+/* ORDER POLICY */
+.order-policy{
+  margin:26px 0 20px;
+  padding:17px;
+  background:#fffaf0;
+  border:1px solid #f0d58a;
+  border-left:4px solid #f0ad2c;
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(120,90,20,.07);
+  direction:rtl;
+  text-align:right;
+}
 
+.order-policy h3{
+  margin-bottom:7px;
+  color:#8a5a00;
+  font-size:16px;
+}
+
+.order-policy p{
+  margin:6px 0;
+  color:#5f5a4c;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.order-policy .warning{
+  color:#795200;
+  font-weight:bold;
+}
+
+/* FOOTER */
 .footer{
   text-align:center;
   color:#7a8493;
   font-size:13px;
-  padding:28px 10px 5px;
+  padding:20px 10px 5px;
 }
 
 .footer strong{
@@ -324,10 +339,8 @@ button:hover{
   font-size:14px;
 }
 
-/* ================= TABLET / DESKTOP ================= */
-
+/* DESKTOP */
 @media(min-width:600px){
-
   .services{
     grid-template-columns:repeat(4,1fr);
     gap:15px;
@@ -336,29 +349,10 @@ button:hover{
   .service{
     min-height:165px;
   }
-
-  /*
-    آخری 3 cards کو آخری row میں
-    صاف اور balanced رکھا گیا ہے۔
-  */
-
-  .service:nth-child(9){
-    grid-column:1;
-  }
-
-  .service:nth-child(10){
-    grid-column:2;
-  }
-
-  .service:nth-child(11){
-    grid-column:3;
-  }
 }
 
-/* ================= SMALL MOBILE ================= */
-
+/* SMALL MOBILE */
 @media(max-width:380px){
-
   .container{
     padding-left:12px;
     padding-right:12px;
@@ -394,34 +388,16 @@ button:hover{
     padding:18px;
   }
 }
-
-/* ================= VERY SMALL SCREENS ================= */
-
-@media(max-width:330px){
-
-  .service{
-    min-height:138px;
-  }
-
-  .icon{
-    width:50px;
-    height:50px;
-    font-size:26px;
-  }
-
-  .service h3{
-    font-size:13px;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="main-header">
 
   <div class="logo">
-    <img src="file_000000008d5082088c58200b4d4e1126.png" alt="Reacher Digital Logo">
+    <img src="file_000000008d5082088c58200b4d4e1126.png"
+         alt="Reacher Digital Logo">
   </div>
 
   <h1>Reacher Digital</h1>
@@ -436,80 +412,66 @@ button:hover{
   <p>ہماری سروسز</p>
 </div>
 
-<!-- ================= SERVICES ================= -->
-
 <div class="services">
 
-  <!-- 1 -->
-  <div class="service" onclick="openForm('grocery')">
-    <div class="icon">🛒</div>
-    <h3>Grocery<span>گروسری</span></h3>
-  </div>
+<div class="service" onclick="openForm('grocery')">
+  <div class="icon">🛒</div>
+  <h3>Grocery<span>گروسری</span></h3>
+</div>
 
-  <!-- 2 -->
-  <div class="service" onclick="openForm('food')">
-    <div class="icon">🍔</div>
-    <h3>Food<span>کھانا</span></h3>
-  </div>
+<div class="service" onclick="openForm('food')">
+  <div class="icon">🍔</div>
+  <h3>Food<span>کھانا</span></h3>
+</div>
 
-  <!-- 3 -->
-  <div class="service" onclick="openForm('pharmacy')">
-    <div class="icon">💊</div>
-    <h3>Pharmacy<span>فارمیسی</span></h3>
-  </div>
+<div class="service" onclick="openForm('pharmacy')">
+  <div class="icon">💊</div>
+  <h3>Pharmacy<span>فارمیسی</span></h3>
+</div>
 
-  <!-- 4 -->
-  <div class="service" onclick="openForm('delivery')">
-    <div class="icon">🛵</div>
-    <h3>Delivery<span>ڈیلیوری</span></h3>
-  </div>
+<div class="service" onclick="openForm('delivery')">
+  <div class="icon">🛵</div>
+  <h3>Delivery<span>ڈیلیوری</span></h3>
+</div>
 
-  <!-- 5 -->
-  <div class="service" onclick="openForm('parcel')">
-    <div class="icon">📦</div>
-    <h3>Parcel / Pickup & Drop<span>پارسل / پک اپ اور ڈراپ</span></h3>
-  </div>
+<div class="service" onclick="openForm('parcel')">
+  <div class="icon">📦</div>
+  <h3>Parcel / Pickup & Drop<span>پارسل / پک اپ اور ڈراپ</span></h3>
+</div>
 
-  <!-- 6 -->
-  <div class="service" onclick="openForm('bakery')">
-    <div class="icon">🥐</div>
-    <h3>Bakery<span>بیکری</span></h3>
-  </div>
+<div class="service" onclick="openForm('bakery')">
+  <div class="icon">🥐</div>
+  <h3>Bakery<span>بیکری</span></h3>
+</div>
 
-  <!-- 7 -->
-  <div class="service" onclick="openForm('restaurant')">
-    <div class="icon">🍽️</div>
-    <h3>Restaurant<span>ریسٹورنٹ</span></h3>
-  </div>
+<div class="service" onclick="openForm('restaurant')">
+  <div class="icon">🍽️</div>
+  <h3>Restaurant<span>ریسٹورنٹ</span></h3>
+</div>
 
-  <!-- 8 -->
-  <div class="service" onclick="openForm('shopping')">
-    <div class="icon">🛍️</div>
-    <h3>Shopping<span>شاپنگ</span></h3>
-  </div>
+<div class="service" onclick="openForm('shopping')">
+  <div class="icon">🛍️</div>
+  <h3>Shopping<span>شاپنگ</span></h3>
+</div>
 
-  <!-- 9 -->
-  <div class="service" onclick="openForm('ride')">
-    <div class="icon">🛺</div>
-    <h3>Reacher Ride<span>ریچر رائیڈ</span></h3>
-  </div>
+<div class="service" onclick="openForm('ride')">
+  <div class="icon">🛺</div>
+  <h3>Reacher Ride<span>ریچر رائیڈ</span></h3>
+</div>
 
-  <!-- 10 -->
-  <div class="service" onclick="openForm('recharge')">
-    <div class="icon">📱</div>
-    <h3>Recharge & Packages<span>ریچارج اور پیکیجز</span></h3>
-  </div>
+<div class="service" onclick="openForm('recharge')">
+  <div class="icon">📱</div>
+  <h3>Recharge & Packages<span>ریچارج اور پیکیجز</span></h3>
+</div>
 
-  <!-- 11 -->
-  <div class="service" onclick="openForm('bill')">
-    <div class="icon">🧾</div>
-    <h3>Bill Payment<span>بل پیمنٹ</span></h3>
-  </div>
+<div class="service" onclick="openForm('bill')">
+  <div class="icon">🧾</div>
+  <h3>Bill Payment<span>بل پیمنٹ</span></h3>
+</div>
 
 </div>
 
-<!-- ================= GROCERY ================= -->
-
+<!-- GROCERY -->
 <div class="form" id="grocery">
 <h2>🛒 Grocery Order / گروسری آرڈر</h2>
 <p class="note">اپنی مطلوبہ گروسری اور مقدار لکھیں۔ ہم سامان arrange کرکے آپ تک پہنچائیں گے۔</p>
@@ -524,20 +486,17 @@ button:hover{
 <input id="g_address" placeholder="مکمل پتہ لکھیں">
 
 <label>Grocery Items / گروسری سامان</label>
-<textarea id="g_items" placeholder="مثال:
-Apple / سیب - 2 کلو
+<textarea id="g_items" placeholder="Apple / سیب - 2 کلو
 Potato / آلو - 3 کلو"></textarea>
 
 <div class="buttons">
 <button class="whatsapp" onclick="sendOrder('grocery')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= FOOD ================= -->
-
+<!-- FOOD -->
 <div class="form" id="food">
 <h2>🍔 Food Order / کھانے کا آرڈر</h2>
 <p class="note">اپنے کھانے اور مقدار کی تفصیل لکھیں۔</p>
@@ -558,12 +517,10 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('food')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= PHARMACY ================= -->
-
+<!-- PHARMACY -->
 <div class="form" id="pharmacy">
 <h2>💊 Pharmacy Order / فارمیسی آرڈر</h2>
 <p class="note">دوا یا فارمیسی آئٹمز کی تفصیل لکھیں۔</p>
@@ -584,12 +541,10 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('pharmacy')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= DELIVERY ================= -->
-
+<!-- DELIVERY -->
 <div class="form" id="delivery">
 <h2>🛵 Delivery / ڈیلیوری</h2>
 <p class="note">Pickup اور Delivery کی معلومات دیں۔</p>
@@ -613,12 +568,10 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('delivery')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= PARCEL ================= -->
-
+<!-- PARCEL -->
 <div class="form" id="parcel">
 <h2>📦 Parcel / Pickup & Drop</h2>
 <p class="note">پارسل کے Pickup اور Drop کی معلومات دیں۔</p>
@@ -642,12 +595,10 @@ Potato / آلو - 3 کلو"></textarea>
 <button class="whatsapp" onclick="sendOrder('parcel')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= BAKERY ================= -->
-
+<!-- BAKERY -->
 <div class="form" id="bakery">
 <h2>🥐 Bakery Order / بیکری آرڈر</h2>
 <p class="note">بیکری آئٹمز اور مقدار لکھیں۔</p>
@@ -670,12 +621,10 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('bakery')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= RESTAURANT ================= -->
-
+<!-- RESTAURANT -->
 <div class="form" id="restaurant">
 <h2>🍽️ Restaurant Order / ریسٹورنٹ آرڈر</h2>
 <p class="note">ریسٹورنٹ اور کھانے کی معلومات دیں۔</p>
@@ -699,12 +648,10 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('restaurant')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= SHOPPING ================= -->
-
+<!-- SHOPPING -->
 <div class="form" id="shopping">
 <h2>🛍️ Shopping / شاپنگ</h2>
 <p class="note">جو بھی شاپنگ کروانی ہے اس کی تفصیل دیں۔</p>
@@ -725,12 +672,10 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('shopping')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= RIDE ================= -->
-
+<!-- RIDE -->
 <div class="form" id="ride">
 <h2>🛺 Reacher Ride / ریچر رائیڈ</h2>
 <p class="note">Pickup اور Destination کی معلومات دیں۔</p>
@@ -754,12 +699,10 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('ride')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= RECHARGE ================= -->
-
+<!-- RECHARGE -->
 <div class="form" id="recharge">
 <h2>📱 Recharge & Packages / ریچارج اور پیکیجز</h2>
 <p class="note">اپنا نیٹ ورک اور مطلوبہ پیکیج لکھیں۔</p>
@@ -786,12 +729,10 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('recharge')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= BILL ================= -->
-
+<!-- BILL -->
 <div class="form" id="bill">
 <h2>🧾 Bill Payment / بل پیمنٹ</h2>
 <p class="note">بل کی قسم اور ضروری معلومات درج کریں۔</p>
@@ -819,57 +760,29 @@ Biscuits / بسکٹ"></textarea>
 <button class="whatsapp" onclick="sendOrder('bill')">💬 WhatsApp Order</button>
 <button class="call" onclick="callNow()">📞 Call / کال</button>
 </div>
-
 <button class="close" onclick="closeForms()">Close / بند کریں</button>
 </div>
 
-<!-- ================= CONTACT ================= -->
-
+<!-- CONTACT -->
 <button class="chat" onclick="openWhatsApp()">
 💬 Chat with Reacher Digital / ریچر ڈیجیٹل سے رابطہ کریں
 </button>
 
-<!-- ================= FOOTER ================= -->
 <!-- ORDER POLICY -->
-<style>
-.order-policy{
-  margin:24px 0;
-  padding:16px;
-  background:#fffaf0;
-  border:1px solid #f0d58a;
-  border-left:4px solid #f0ad2c;
-  border-radius:16px;
-  box-shadow:0 6px 18px rgba(120,90,20,.07);
-  direction:rtl;
-  text-align:right;
-}
-.order-policy h3{
-  margin:0 0 5px;
-  color:#8a5a00;
-  font-size:16px;
-}
-.order-policy p{
-  margin:5px 0;
-  color:#5f5a4c;
-  font-size:13px;
-  line-height:1.8;
-}
-.order-policy .warning{
-  color:#795200;
-  font-weight:bold;
-}
-</style>
-
 <div class="order-policy">
   <h3>📋 Important Order Policy / اہم آرڈر پالیسی</h3>
+
   <p>
     آرڈر کی خریداری شروع ہونے سے پہلے customer اپنا آرڈر cancel کر سکتا ہے۔
     لیکن سامان خریدنے کے بعد cancellation کی صورت میں تمام ذمہ داری customer کی ہوگی۔
   </p>
+
   <p class="warning">
     ⚠️ سامان خریدنے کے بعد cancellation کی صورت میں خریداری کی رقم اور متعلقہ نقصان customer کی ذمہ داری ہوگا۔
   </p>
 </div>
+
+<!-- FOOTER -->
 <div class="footer">
 <strong>Reacher Digital</strong><br>
 Digital Delivery & Ordering<br>
@@ -909,7 +822,8 @@ function callNow(){
 }
 
 function openWhatsApp(){
-  const message="Assalam-o-Alaikum, I want to contact Reacher Digital.";
+  const message=
+    "Assalam-o-Alaikum, I want to contact Reacher Digital.";
 
   window.open(
     "https://wa.me/"+PHONE+
@@ -933,7 +847,8 @@ function sendOrder(type){
     name=getValue("g_name");
     phone=getValue("g_phone");
 
-    message="🛒 NEW GROCERY ORDER\n\n"+
+    message=
+    "🛒 NEW GROCERY ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("g_address")+"\n\n"+
@@ -944,7 +859,8 @@ function sendOrder(type){
     name=getValue("f_name");
     phone=getValue("f_phone");
 
-    message="🍔 NEW FOOD ORDER\n\n"+
+    message=
+    "🍔 NEW FOOD ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("f_address")+"\n\n"+
@@ -955,7 +871,8 @@ function sendOrder(type){
     name=getValue("p_name");
     phone=getValue("p_phone");
 
-    message="💊 NEW PHARMACY ORDER\n\n"+
+    message=
+    "💊 NEW PHARMACY ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("p_address")+"\n\n"+
@@ -966,7 +883,8 @@ function sendOrder(type){
     name=getValue("d_name");
     phone=getValue("d_phone");
 
-    message="🛵 NEW DELIVERY REQUEST\n\n"+
+    message=
+    "🛵 NEW DELIVERY REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Pickup / پک اپ: "+getValue("d_pickup")+"\n"+
@@ -978,7 +896,8 @@ function sendOrder(type){
     name=getValue("pa_name");
     phone=getValue("pa_phone");
 
-    message="📦 NEW PARCEL REQUEST\n\n"+
+    message=
+    "📦 NEW PARCEL REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Pickup / پک اپ: "+getValue("pa_pickup")+"\n"+
@@ -990,7 +909,8 @@ function sendOrder(type){
     name=getValue("b_name");
     phone=getValue("b_phone");
 
-    message="🥐 NEW BAKERY ORDER\n\n"+
+    message=
+    "🥐 NEW BAKERY ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("b_address")+"\n\n"+
@@ -1001,7 +921,8 @@ function sendOrder(type){
     name=getValue("r_name");
     phone=getValue("r_phone");
 
-    message="🍽️ NEW RESTAURANT ORDER\n\n"+
+    message=
+    "🍽️ NEW RESTAURANT ORDER\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Restaurant / ریسٹورنٹ: "+getValue("r_restaurant")+"\n"+
@@ -1013,7 +934,8 @@ function sendOrder(type){
     name=getValue("s_name");
     phone=getValue("s_phone");
 
-    message="🛍️ NEW SHOPPING REQUEST\n\n"+
+    message=
+    "🛍️ NEW SHOPPING REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Address / پتہ: "+getValue("s_address")+"\n\n"+
@@ -1024,7 +946,8 @@ function sendOrder(type){
     name=getValue("ri_name");
     phone=getValue("ri_phone");
 
-    message="🛺 NEW REACHER RIDE REQUEST\n\n"+
+    message=
+    "🛺 NEW REACHER RIDE REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Pickup / پک اپ: "+getValue("ri_pickup")+"\n"+
@@ -1036,7 +959,8 @@ function sendOrder(type){
     name=getValue("re_name");
     phone=getValue("re_phone");
 
-    message="📱 NEW RECHARGE REQUEST\n\n"+
+    message=
+    "📱 NEW RECHARGE REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Mobile / موبائل: "+phone+"\n"+
     "Network / نیٹ ورک: "+getValue("re_network")+"\n\n"+
@@ -1047,7 +971,8 @@ function sendOrder(type){
     name=getValue("bi_name");
     phone=getValue("bi_phone");
 
-    message="🧾 NEW BILL PAYMENT REQUEST\n\n"+
+    message=
+    "🧾 NEW BILL PAYMENT REQUEST\n\n"+
     "Name / نام: "+name+"\n"+
     "Phone / فون: "+phone+"\n"+
     "Bill Type / بل کی قسم: "+getValue("bi_type")+"\n\n"+
