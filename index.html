@@ -287,30 +287,20 @@ button{
 /* SMALL MOBILE */
 
 @media(max-width:380px){
-
+@media(min-width:600px){
   .services{
-    gap:10px;
+    grid-template-columns:repeat(4,1fr);
+    direction:ltr;
   }
 
-  .service{
-    min-height:135px;
-    padding:15px 8px;
+  .container{
+    padding-top:30px;
   }
 
-  .service .icon{
-    width:54px;
-    height:54px;
-    font-size:29px;
+  .service:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(20,45,80,.11);
   }
-
-  .service h3{
-    font-size:14px;
-  }
-
-  .service h3 span{
-    font-size:12px;
-  }
-
 }
 
 </style>
