@@ -1,0 +1,8 @@
+{
+  "name": "Reacher Digital",
+  "short_name": "Reacher",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1565c0"
+}
